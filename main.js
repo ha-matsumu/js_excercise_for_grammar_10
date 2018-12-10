@@ -61,21 +61,21 @@ console.log("returnedNumbersに内容は[10, 500, 234, 221]であるべき: " + 
  */
 
 const beforeSortNumbers = [1000, 10, 500, 234, 965, 221, 102];
-// 引数に渡す配列
-const beforeSortNumbers2 = beforeSortNumbers.slice();
 
 // sortNumbers関数の定義
 function sortNumbers(_numbers) {
+    // 引数に渡す配列
+    const beforeSortNumbers2 = _numbers.slice();
     // 昇順にソート
-    _numbers.sort((a, b) => {
+    beforeSortNumbers2.sort((a, b) => {
         return a - b;
     });
 
     // ソートした配列を返す
-    return _numbers;
+    return beforeSortNumbers2;
 }
 
-const afterSortNumbers = sortNumbers(beforeSortNumbers2);
+const afterSortNumbers = sortNumbers(beforeSortNumbers);
 
 // 変数の中身の確認
 console.log("beforeSortNumbersの内容は[1000, 10, 500, 234, 965, 221, 102]であるべき: " + beforeSortNumbers);
