@@ -14,27 +14,28 @@
  *     - removeMaxNumberFromArray関数を実行した後の配列numbersの内容は [10, 500, 234, 965, 221] のままである
  */
 
-// 引数に渡す配列
 const numbers = [10, 500, 234, 965, 221];
+// 引数に渡す配列
+const numbers2 = numbers.slice();
 
 // removeMaxNumberFromArray関数の定義
-function removeMaxNumberFromArray(_number) {
+function removeMaxNumberFromArray(_numbers) {
     // 配列の中で一番大きい数値を探す
-    const maxValue = numbers.reduce(function(a, b) {
+    const maxValue = _numbers.reduce(function(a, b) {
         return Math.max(a, b);
     });
 
     // 一番大きい数値を配列から削除
-    numbers.forEach((value, index) => {
+    _numbers.forEach((value, index) => {
         if(value === maxValue) {
-            numbers.splice(index, 1);
+            _numbers.splice(index, 1);
         }
     });
 
-    return numbers;
+    return _numbers;
 }
 
-const returnedNumbers = removeMaxNumberFromArray(numbers);
+const returnedNumbers = removeMaxNumberFromArray(numbers2);
 
 // 変数の中身の確認
 console.log("numbersの内容は[10, 500, 234, 965, 221]であるべき: " + numbers);
@@ -59,21 +60,22 @@ console.log("returnedNumbersに内容は[10, 500, 234, 221]であるべき: " + 
  *       - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
  */
 
-// 引数に渡す配列
 const beforeSortNumbers = [1000, 10, 500, 234, 965, 221, 102];
+// 引数に渡す配列
+const beforeSortNumbers2 = beforeSortNumbers.slice();
 
 // sortNumbers関数の定義
 function sortNumbers(_numbers) {
     // 昇順にソート
-    beforeSortNumbers.sort((a, b) => {
+    _numbers.sort((a, b) => {
         return a - b;
     });
 
     // ソートした配列を返す
-    return beforeSortNumbers;
+    return _numbers;
 }
 
-const afterSortNumbers = sortNumbers(beforeSortNumbers);
+const afterSortNumbers = sortNumbers(beforeSortNumbers2);
 
 // 変数の中身の確認
 console.log("beforeSortNumbersの内容は[1000, 10, 500, 234, 965, 221, 102]であるべき: " + beforeSortNumbers);
